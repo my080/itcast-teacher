@@ -1,3 +1,9 @@
+/**
+ * 请求层的封装类
+ * @author 周亮
+ * @createDate 2019-04-04
+ * @notice 我本地用了 nginx 做的代理，这里并没有跨域处理
+ */
 
 import axios from 'axios'
 
@@ -17,7 +23,6 @@ class Request {
 			}
 			requestURL = requestURL.substr(0, requestURL.length - 1)
 		}
-
 		return axios.get(requestURL)
 	}
 
@@ -25,6 +30,18 @@ class Request {
 		let data = options.data
 		let requestURL = this.baseURL + url
 		return axios.post(requestURL, data)
+	}
+
+	put (url, options) {
+		let data = options.data
+		let requestURL = this.baseURL + url
+		return axios.put(requestURL, data)
+	}
+
+	delete (url, options) {
+		let data = options.data
+		let requestURL = this.baseURL + url
+		return axios.delete(requestURL, data)
 	}
 
 }

@@ -1,24 +1,20 @@
-/**
- * 系统组件引用
- */
 import Vue from 'vue'
 import Router from 'vue-router'
 
 /**
- * 系统主页
+ * 登录模块页面
  */
-import Index from '@/pages/index/it-index.vue'
+import loginRoutes from '@/pages/login/route/route.js'
 
 Vue.use(Router)
 
+let routes = []
+routes = routes.concat(
+	loginRoutes
+)
+
 let router = new Router({
-	routes: [
-		{
-			path: '/main',
-			name: 'index',
-			component: Index,
-		}
-	]
+	routes: routes
 })
 
 export default router
