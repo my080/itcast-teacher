@@ -1,4 +1,129 @@
 
-.test {
+$canvas-color: #000000;
+$canvas-font-color: #eee;
+$primary-color: #3693cf;
+$primary-font-color: #fff;
 
+$white: #fff;               //White Color
+$black: #000;               //Black Color
+
+$goGreen: #74b749;          //Green Color
+$lemonYellow: #ffb400;      //Yellow Color
+$nagpurOrange: #ed6d49;     //Orange Color
+$jetBlue: #0daed3;          //LightBlue Color
+$rubyRed: #f63131;          //Red Color
+
+/*   Mixins  */
+
+/*  Gradients  */
+
+@mixin linear-gradient ($fromColor, $toColor) {
+	background-color: $toColor; /* Fallback Color */
+	background-image: -webkit-gradient(linear, left top, left bottom, from($fromColor), to($toColor)); /* Saf4+, Chrome */
+	background-image: -webkit-linear-gradient(to top, $fromColor, $toColor); /* Chrome 10+, Saf5.1+, iOS 5+ */
+	background-image: -moz-linear-gradient(to top, $fromColor, $toColor); /* FF3.6 */
+	background-image: -ms-linear-gradient(to top, $fromColor, $toColor); /* IE10 */
+	background-image: -o-linear-gradient(to top, $fromColor, $toColor); /* Opera 11.10+ */
+	background-image: linear-gradient(to top, $fromColor, $toColor);
+}
+
+@mixin gradient-ver-three-colors ($startColor: #00b3ee, $midColor: #7a43b6, $colorStop: 50%, $endColor: #c3325f) {
+	background-color: mix($midColor, $endColor, 80%);
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from($startColor), color-stop($colorStop, $midColor), to($endColor));
+	background-image: -webkit-linear-gradient($startColor, $midColor $colorStop, $endColor);
+	background-image: -moz-linear-gradient(to top, $startColor, $midColor $colorStop, $endColor);
+	background-image: -o-linear-gradient($startColor, $midColor $colorStop, $endColor);
+	background-image: linear-gradient($startColor, $midColor $colorStop, $endColor);
+	background-repeat: no-repeat;
+}
+
+@mixin gradient-radial ($innerColor: #555, $outerColor: #333)  {
+	background-color: $outerColor;
+	background-image: -webkit-gradient(radial, center center, 0, center center, 460, from($innerColor), to($outerColor));
+	background-image: -webkit-radial-gradient(circle, $innerColor, $outerColor);
+	background-image: -moz-radial-gradient(circle, $innerColor, $outerColor);
+	background-image: -o-radial-gradient(circle, $innerColor, $outerColor);
+	background-repeat: no-repeat;
+}
+
+/*  Transition  */
+
+@mixin transition ($transition-property, $transition-time, $method) {
+	-webkit-transition: $transition-property $transition-time $method;
+	-moz-transition: $transition-property $transition-time $method;
+	-ms-transition: $transition-property $transition-time $method;
+	-o-transition: $transition-property $transition-time $method;
+	transition: $transition-property $transition-time $method;
+}
+
+@mixin transition-twice ($transition-property, $transition-time, $method, $transition-property, $transition-time, $method) {
+	-webkit-transition: $transition-property $transition-time $method, $transition-property $transition-time $method ;
+	-moz-transition: $transition-property $transition-time $method, $transition-property $transition-time $method ;
+	-ms-transition: $transition-property $transition-time $method, $transition-property $transition-time $method ;
+	-o-transition: $transition-property $transition-time $method, $transition-property $transition-time $method ;
+	transition: $transition-property $transition-time $method, $transition-property $transition-time $method ;
+}
+
+/*  Box Sizing  */
+
+@mixin box-sizing ($string){
+	-webkit-box-sizing: $string;
+	-moz-box-sizing: $string;
+	box-sizing: $string;
+}
+
+/*  Box Shadow  */
+
+@mixin box-shadow ($off-y, $off-x, $blur, $color){
+	-moz-box-shadow: $off-y $off-x $blur $color; /* FF3.5+ */
+	-webkit-box-shadow: $off-y $off-x $blur $color; /* Saf3.0+, Chrome */
+	box-shadow: $off-y $off-x $blur $color; /* Opera 10.5, IE9 */
+}
+
+@mixin box-shadow-inset ($top, $left, $blur, $color, $inset:"") {
+	-webkit-box-shadow: $top $left $blur $color $inset;
+	-moz-box-shadow: $top $left $blur $color $inset;
+	box-shadow: $top $left $blur $color $inset;
+}
+
+@mixin box-shadow-twice ($val1, $val2, $val3, $val4, $val5, $val6, $val7, $val8, $val9) {
+	-webkit-box-shadow: $val1 $val2 $val3 $val4 $val5 $val6 $val7 $val8 $val9;
+	-moz-box-shadow: $val1 $val2 $val3 $val4 $val5 $val6 $val7 $val8 $val9;
+	box-shadow: $val1 $val2 $val3 $val4 $val5 $val6 $val7 $val8 $val9;
+}
+
+/*  Border Radius  */
+
+@mixin border-radius ($radius) {
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	border-radius: $radius;
+}
+
+@mixin border-radius-all-val ($radius1, $radius2, $radius3, $radius4) {
+	-webkit-border-radius: $radius1 $radius2 $radius3 $radius4;
+	-moz-border-radius: $radius1 $radius2 $radius3 $radius4;
+	border-radius: $radius1 $radius2 $radius3 $radius4;
+}
+
+/*  Opacity  */
+
+@mixin opacity ($opacity) {
+	opacity: $opacity / 100;
+	filter: alpha(opacity=$opacity);
+}
+
+.clearfix {
+	*zoom: 1;
+	&:before {
+		display: table;
+		content: "";
+		line-height: 0;
+	}
+	&:after {
+		display: table;
+		content: "";
+		line-height: 0;
+		clear: both;
+	}
 }

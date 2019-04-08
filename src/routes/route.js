@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 /**
- * 登录模块页面
+ * 登录模块路由集合
  */
 import loginRoutes from '@/pages/login/route/route.js'
 

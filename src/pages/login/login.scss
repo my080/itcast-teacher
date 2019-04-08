@@ -1,0 +1,439 @@
+
+@import "../../common/styles/main.scss";
+
+.btn-primary .caret, .btn-warning .caret, .btn-warning2 .caret, .btn-danger .caret, .btn-info .caret, .btn-success .caret, .btn-inverse .caret {
+	border-top-color: $white;
+	border-bottom-color: $white;
+}
+
+.btn-primary.active, .btn-warning.active, .btn-warning2.active, .btn-danger.active, .btn-success.active, .btn-info.active, .btn-inverse.active {
+	color: rgba(255, 255, 255, 0.75);
+}
+
+a {
+	text-decoration: none;
+}
+
+.btn {
+	display: inline-block;
+	*display: inline;
+	/* IE7 inline-block hack */
+	*zoom: 1;
+	padding: 4px 12px;
+	margin-bottom: 0;
+	font-size: 14px;
+	line-height: 20px;
+	text-align: center;
+	vertical-align: middle;
+	cursor: pointer;
+	color: lighten($black, 20%);
+	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+	@include linear-gradient(white, #e6e6e6);
+	background-repeat: repeat-x;
+	border-color: #e6e6e6 #e6e6e6 #bfbfbf;
+	border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+	border: 1px solid #bbbbbb;
+	*border: 0;
+	border-bottom-color: #a2a2a2;
+	@include border-radius(2px);
+	*margin-left: .3em;
+	@include box-shadow-twice(inset, 0, 1px, 0, rgba(255, 255, 255, 0.2), 0, 1px, 2px, rgba(0, 0, 0, 0.05));
+	&:hover, &:active, &.active, &.disabled, &[disabled] {
+		color: lighten($black, 20%);
+		background-color: #e6e6e6;
+		*background-color: #d9d9d9;
+	}
+	&:active, &.active {
+		background-color: darken($white, 20%) \9;
+	}
+	&:first-child {
+		*margin-left: 0;
+	}
+	&:hover {
+		color: lighten($black, 20%);
+		text-decoration: none;
+		background-position: 0 -15px;
+		@include transition(background-position, 0.1s, linear);
+	}
+	&:focus {
+		outline: thin dotted #333;
+		outline: 5px auto -webkit-focus-ring-color;
+		outline-offset: -2px;
+	}
+	&.active, &:active {
+		background-image: none;
+		outline: 0;
+		@include box-shadow-twice(inset, 0, 2px, 4px, rgba(0, 0, 0, 0.15), 0, 1px, 2px, rgba(0, 0, 0, 0.05));
+	}
+	&.disabled, &[disabled] {
+		cursor: default;
+		background-image: none;
+		opacity: 0.65;
+		-webkit-box-shadow: none;
+		-moz-box-shadow: none;
+		box-shadow: none;
+	}
+}
+
+.btn-danger {
+	color: $white;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+	@include linear-gradient(#0667A2, darken(#0667A2, 5%));
+	border-color: #0667A2 #0667A2 darken(#0667A2, 5%);
+	border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+	&:hover, &:active, &.active, &.disabled, &[disabled] {
+		color: $white;
+		background-color: darken(#0667A2, 5%);
+		*background-color: darken(#0667A2, 5%);
+	}
+	&:active, &.active {
+		background-color: #0667A2 \9;
+	}
+}
+
+.dashboard-wrapper {
+	height: 100%;
+	position: relative;
+	background: darken($white, 3%);
+	@include border-radius-all-val(0, 0, 4px, 4px);
+	min-height: 480px;
+	
+	/*  Left Sidebar Container Starts Here  */
+	.left-sidebar{
+		margin-right: 260px;
+		
+		.widget {
+			background: darken($white, 2%);
+			border: 1px solid #e0dede;
+			clear: both;
+			margin-top: 0px;
+			margin-bottom: 30px;
+			@include border-radius(3px);
+			.widget-body{
+				padding: 10px;
+				border-bottom: 1px solid darken($white, 30%);
+				@include border-radius-all-val(0, 0, 2px, 2px);
+				
+				/*  INDEX Page Elements Start  */
+				
+				.todo-container{
+					width: 100%;
+					.todo-list{
+						min-height: 180px;
+						li {
+							background: darken($white, 4%);
+							border-bottom: 1px dotted darken($white, 20%);
+							line-height: 34px;
+							&:last-child{
+								border-bottom: 0;
+							}
+							input[type="checkbox"]{
+								margin: 0 2px 0 10px;
+								&:checked + label{
+									text-decoration: line-through;
+									color: darken($white, 40%);
+								}
+							}
+							label{
+								display:inline-block;
+								cursor:pointer;
+								font-size: 12px;
+								.date{
+									font-size: 10px;
+									color: darken($white, 30%);
+									padding-left: 5px;
+								}
+							}
+							&:hover{
+								background: darken($white, 2%);
+							}
+						}
+						
+						.new {
+							border-left: 3px solid $nagpurOrange;
+							margin: 1px 0;
+						}
+						.completed{
+							border-left: 3px solid $goGreen;
+							margin: 1px 0;
+						}
+						.process{
+							border-left: 3px solid $lemonYellow;
+							margin: 1px 0;
+						}
+					}
+					
+					.input-append{
+						margin-top: 5px;
+						margin-bottom: 0;
+						width: 90%;
+					}
+				}
+				
+				.message-container{
+					.message {
+						position: relative;
+						margin-bottom: 10px;
+						min-height: 84px;
+						padding: 5px;
+						background: $white;
+						border: 1px solid darken($white, 15%);
+						@include border-radius(2px);
+						overflow: hidden;
+					}
+					.img-container{
+						width: 10%;
+						position: absolute;
+						padding: 2px;
+						img {
+							@include border-radius(2px);
+							max-height: 80px;
+							width: 100%;
+						}
+					}
+					article {
+						width: 85%;
+						position: absolute;
+						left: 13%;
+						right: 2%;
+						top: 0px;
+						padding: 5px 0;
+						border-bottom: 1px solid darken($white, 10%);
+						a{
+							color: $nagpurOrange;
+						}
+					}
+					
+					.icons-nav {
+						width: 85%;
+						position: absolute;
+						left: 13%;
+						top: 60px;
+						ul li {
+							float: right;
+							display: inline-block;
+							[data-icon]:before {
+								margin: 0 4px;
+								line-height: 24px;
+								font-size: 12px;
+								color: $nagpurOrange;
+							}
+						}
+						li.time {
+							float: left;
+							color: darken($white, 25%);
+						}
+					}
+				}
+				
+				/*  INDEX Page Elements End  */
+				
+				/*  GRAPHS Page Elements Start  */
+				
+				.easy-pie-charts-container{
+					.pie-chart{
+						margin-right: 20px;
+						float: left;
+						.name{
+							text-align: center;
+							padding-top: 10px;
+						}
+					}
+				}
+				
+				/*  GRAPHS Page Elements End  */
+				
+				/*  ICONS Page Elements Start  */
+				
+				.icomoon-icons-container li{
+					@include linear-gradient(darken($white, 5%), darken($white, 10%));
+					border: 1px solid darken($white, 12%);
+					color: lighten($black, 40%);
+					@include border-radius(2px);
+					display: inline-block;
+					float: left;
+					margin-right: 5px;
+					margin-bottom: 5px;
+					font-size: 16px;
+					text-align: center;
+					vertical-align: middle;
+					width: 32px;
+					height: 32px;
+					line-height: 32px;
+					&:hover{
+						background: white;
+						cursor: pointer;
+					}
+				}
+				
+				/*  ICONS Page Elements End  */
+				
+				
+				/*  FORMS Page Elements Start  */
+				
+				
+				/*  FORMS Page Elements End  */
+				
+				
+				/*  TABLES Page Elements Start  */
+				
+				#dt_example{
+					.dataTables_length{
+						float: left;
+						select{
+							width: 80px;
+							height: 30px;
+							margin-bottom: 0;
+						}
+					}
+					.dataTables_filter{
+						float: right;
+						input{
+							width: 160px;
+							margin-bottom: 0;
+						}
+					}
+					.dataTables_info {
+						float: left;
+						margin-bottom: 5px;
+					}
+					.dataTables_paginate {
+						margin: 5px 0;
+						float: right;
+						.first, .previous, .next, .paginate_active, .last, .paginate_button{
+							@include linear-gradient(darken($white, 5%), darken($white, 10%));
+							border-left: 1px solid darken($white, 15%);
+							border-top: 1px solid darken($white, 15%);
+							border-bottom: 1px solid darken($white, 15%);
+							padding: 7px 10px;
+							&:hover{
+								background: #f9f9f9;
+								cursor: pointer;
+							}
+						}
+						.last {
+							border-right: 1px solid darken($white, 15%);
+						}
+						.paginate_active{
+							background: #f9f9f9;
+						}
+					}
+					/* Sorting */
+					
+					.dataTable .sorting {
+						cursor: pointer;
+						background: url(./img/sorting.png) no-repeat center right;
+					}
+					
+					.dataTable .sorting_asc {
+						cursor: pointer;
+						background: url(./img/sorting_asc.png) no-repeat center right;
+					}
+					
+					.dataTable .sorting_desc {
+						cursor: pointer;
+						background: url(./img/sorting_desc.png) no-repeat center right;
+					}
+				}
+				
+				/*  TABLES Page Elements End  */
+				
+			}
+		}
+	}
+	/*  Left Sidebar Container Ends Here  */
+	
+}
+
+img {
+	max-width: 100%;
+	width: auto\9;
+	height: auto;
+	vertical-align: middle;
+	border: 0;
+	-ms-interpolation-mode: bicubic;
+}
+
+.sign-in-container{
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 200px;
+	width: 500px;
+	
+	.pull-right {
+		float: right;
+	}
+	
+	//margin: 30px auto;
+	.login-wrapper {
+		background: white;
+		-webkit-border-radius: 4px;
+		-moz-border-radius: 4px;
+		border-radius: 4px;
+		-webkit-box-shadow: 0 18px 6px -8px #999, 0 0 2px #ccc;
+		-moz-box-shadow: 0 18px 6px -8px #999, 0 0 2px #ccc;
+		box-shadow: 0 18px 6px -8px #999, 0 0 2px #ccc;
+		position: relative;
+		.header {
+			padding: 30px 20px 10px 20px;
+			margin: 0;
+			h3 {
+				font-size: 24px;
+				line-height: 40px;
+				margin: 0;
+				padding: 0;
+				color: #0667A2;
+			}
+			p {
+				font-size: 12px;
+				text-align: left;
+				line-height: 18px;
+				color: darken($white, 50%);
+				padding: 10px 0;
+				margin: 0;
+			}
+			.logo img{
+				max-width: 80px;
+				float: right;
+			}
+		}
+		
+		.content {
+			padding: 10px 20px;
+			.input {
+				padding-left: 6px;
+				padding-right: 6px;
+				width: 97%;
+				height: 30px;
+				font-weight: normal;
+				color: darken($white, 20%);
+				border: 1px solid darken($white, 10%);
+				box-shadow: none;
+				border-radius: 2px;
+			}
+			.input:hover, select:hover {
+				background: darken($white, 2%);
+			}
+			.row-fluid {
+				margin-bottom: 10px;
+			}
+		}
+		
+		.actions {
+			padding: 10px 20px;
+			background: #fff;
+			border-radius: 0 0 4px 4px;
+			.btn {
+				float: right;
+			}
+			.link {
+				float: right;
+				padding: 10px;
+				font-size: 14px;
+				margin-right: 10px;
+				line-height: 14px;
+				color:  #777777;
+			}
+		}
+	}
+}
