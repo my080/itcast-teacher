@@ -10,26 +10,28 @@ import axios from 'axios'
 class Request {
 
 	constructor () {
-		this.baseURL = 'http://192.168.192.28/'
+		this.config = {
+			baseURL: 'http://localhost/apis/'
+		}
+		this.baseURL = 'http://localhost/apis/'
 	}
 
 	get (url, options) {
 		let data = options.data
-		let requestURL = this.baseURL + url
+		let requestURL = url
 		if (data) {
 			requestURL = requestURL + '?'
 			for (let key in data) {
-				requestURL = requestURL + key + '=' + data[key]
+				requestURL = requestURL + key + '=' + data[key] + '&'
 			}
 			requestURL = requestURL.substr(0, requestURL.length - 1)
 		}
-		return axios.get(requestURL)
+		return axios.get(requestURL, this.config)
 	}
 
 	post (url, options) {
 		let data = options.data
-		let requestURL = this.baseURL + url
-		return axios.post(requestURL, data)
+		return axios.post(url, data, this.config)
 	}
 
 	put (url, options) {

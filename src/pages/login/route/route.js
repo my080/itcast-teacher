@@ -2,21 +2,31 @@
 /**
  * 登录模块页面
  */
-const ToLogin = r => require.ensure([], () => r(require('@/pages/login/it-to-login.vue')), 'to-login')
 const Login = r => require.ensure([], () => r(require('@/pages/login/it-login.vue')), 'login')
+const Register = r => require.ensure([], () => r(require('@/pages/login/it-register.vue')), 'register')
+const InitMessage = r => require.ensure([], () => r(require('@/pages/login/it-init-message')), 'register')
 
 
 const loginRoutes = [
 	{
-		path: '/login',
+		path: '/',
 		name: 'login',
-		component: Login,
-		children: []
+		component: Login
 	},
 	{
-		path: '/to-login',
-		name: 'to-login',
-		component: ToLogin
+		path: '/login',
+		name: 'login',
+		component: Login
+	},
+	{
+		path: '/register',
+		name: 'register',
+		component: Register
+	},
+	{
+		path: '/init-message',
+		name: 'init-message',
+		component: InitMessage
 	}
 ]
 

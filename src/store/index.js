@@ -8,17 +8,19 @@ import * as getters from './getters'
 import state from './state'
 
 import loginStore from '../pages/login/store/store.js'
+import homeStore from '../pages/home/store/store.js'
 
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
-  state,
-  getters,
-  actions,
-  mutations,
-  modules: {
-    login: loginStore
-  }
+    state,
+    getters,
+    actions,
+    mutations,
+    modules: {
+        login: loginStore,
+        home: homeStore
+    }
 })
 
 export default store

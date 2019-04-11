@@ -416,17 +416,31 @@ img {
 			}
 			.row-fluid {
 				margin-bottom: 10px;
+				.check {
+					margin-bottom: 10px;
+				}
+			}
+			.menu-btn {
+				margin-right: 20px;
 			}
 		}
 		
 		.actions {
-			padding: 10px 20px;
+			padding: 0px 20px 10px 20px;
 			background: #fff;
 			border-radius: 0 0 4px 4px;
 			.btn {
 				float: right;
 			}
-			.link {
+			.left-link {
+				float: left;
+				padding: 10px;
+				font-size: 14px;
+				margin-right: 10px;
+				line-height: 14px;
+				color:  #777777;
+			}
+			.right-link {
 				float: right;
 				padding: 10px;
 				font-size: 14px;
