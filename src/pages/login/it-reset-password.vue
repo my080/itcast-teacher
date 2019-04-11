@@ -11,13 +11,13 @@
 							<div class="content">
 								<div class="row-fluid">
 									<div class="span12">
-										<input class="input span12 email" v-model="email" name="" placeholder="请输入邮箱" required="required" type="email" value="">
+										<input class="input span12 email" v-model="email" name="" placeholder="Email" required="required" type="email" value="">
 									</div>
 								</div>
 							</div>
 							<div class="actions">
 								<a class="left-link" @click="toLogin" href="#">返回登录</a>
-								<input class="btn btn-danger" @click="send" name="Login" type="button" value="发送邮件" >
+								<input class="btn btn-danger" @click="login" name="Login" type="button" value="登录" >
 								<div class="clearfix"></div>
 							</div>
 						</form>
@@ -54,39 +54,14 @@
 			toLogin () {
 				this.$router.push('/')
 			},
-			send () {
-			
-			},
-			sendEmailSuccess (data) {
+			login () {
 				let that = this
-				if (data && data.data.code === 200) {
-					that.$Message.success('邮件已发送成功，注意查收！')
-				}  else if (data) {
-					that.$Message.error('邮件已发送失败，请重新发送！')
+				let param = {
+					name: that.name,
+					password: that.password
 				}
-			},
-			sendEmailError () {
-				this.$Message.error('服务器存在异常，校验邮件发送失败！')
-			},
-			createCode () {
-				let that = this
-				that.activateCode = that.$md5(that.email + Math.random())
-			},
-			sendEmail (data) {
-				if (data.data.code === 200) {
-					let that = this
-					let url = 'http://localhost/#/reset-password?code=' + that.activateCode
-					let link = '<a href="' + url +  '">' + url + '</a>'
-					let param = {
-						email: that.email,
-						title: '激活邮件',
-						html: link
-					}
-					return this.loginService.sendEmail(param)
-				} else {
-					this.$Message.error('服务器存在异常，请与客服人员联系！')
-				}
-			},
+				this.service.login(param)
+			}
 		}
 	}
 </script>

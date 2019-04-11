@@ -11,19 +11,19 @@
 							<div class="content">
 								<div class="row-fluid">
 									<div class="span12">
-										<input class="input span12 email" v-model="name" name="" placeholder="输入邮箱" required="required" type="email" value="">
+										<input class="input span12 email" v-model="name" name="" placeholder="Email" required="required" type="email" value="">
 									</div>
 								</div>
 								<div class="row-fluid">
 									<div class="span12">
-										<input class="input span12 password" v-model="password" name="" placeholder="输入密码" required="required" type="password">
+										<input class="input span12 password" v-model="password" name="" placeholder="Password" required="required" type="password">
 									</div>
 								</div>
 							</div>
 							<div class="actions">
 								<a class="left-link" @click="toRegister" href="#">注册新老师</a>
-								<input class="btn btn-danger" @click="login" name="Login" type="button" value="登录" >
-								<a class="right-link" @click="forgetPassword" href="#">忘记密码</a>
+								<input class="btn btn-danger" @click="login" name="Login" type="button" value="登录">
+								<a class="right-link" href="#">忘记密码</a>
 								<div class="clearfix"></div>
 							</div>
 						</form>
@@ -39,9 +39,9 @@
 	import LoginService from './service/login-service.js'
 	import SessionStorage from '../../common/scripts/storage/promise/session-storage.js'
 	import Header from './components/header/it-header.vue'
-	
+
 	export default {
-		name: 'it-login',
+		name: 'it-activate',
 		components: {
 			'it-header': Header
 		},
@@ -61,9 +61,6 @@
 			toRegister () {
 				this.$router.push('/register')
 			},
-			forgetPassword () {
-				this.$router.push('/forget-password')
-			},
 			login () {
 				let that = this
 				let param = {
@@ -77,5 +74,5 @@
 </script>
 
 <style lang="scss">
-    @import "./login.scss";
+	@import "./login.scss";
 </style>

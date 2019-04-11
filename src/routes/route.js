@@ -22,8 +22,6 @@ let router = new Router({
 })
 
 router.beforeEach((to, from, next) => {
-	debugger
-	console.log(to, from)
 	next()
 })
 

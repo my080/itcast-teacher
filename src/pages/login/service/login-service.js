@@ -25,6 +25,36 @@ class LoginService {
 	//
 	// }
 
+
+
+	sendEmail (param) {
+		let data = {
+			data: param
+		}
+		return this.request.post('send-email', data)
+	}
+
+	getUserByCode (param) {
+		let data = {
+			data: param
+		}
+		return this.request.get('consumers', data)
+	}
+
+	updateCode (param) {
+		let data = {
+			data: param
+		}
+		return this.request.post('update-code', data)
+	}
+
+	initConsumer (param) {
+		let data = {
+			data: param
+		}
+		return this.request.post('init', data)
+	}
+
 	listPeriods () {
 		return this.request.get('periods', {})
 	}

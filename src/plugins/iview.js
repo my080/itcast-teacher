@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import {
-	Checkbox, Button, Form, FormItem, Input, Cascader
+	Checkbox, Button, Form, FormItem, Input, Cascader, Message
 } from 'iview'
 
 import 'iview/dist/styles/iview.css'
@@ -11,3 +11,5 @@ Vue.component('i-form', Form)
 Vue.component('i-form-item', FormItem)
 Vue.component('i-input', Input)
 Vue.component('i-cascader', Cascader)
+
+Vue.prototype.$Message = Message

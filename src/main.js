@@ -1,12 +1,12 @@
 import Vue from 'vue'
 import App from './App.vue'
-import VueResource from 'vue-resource'
 import store from './store/index.js'
 import router from './routes/route.js'
+import md5 from 'js-md5'
 import './plugins/iview.js'
 
 Vue.config.productionTip = false
-Vue.use(VueResource)
+Vue.prototype.$md5 = md5
 
 new Vue({
 	store,
